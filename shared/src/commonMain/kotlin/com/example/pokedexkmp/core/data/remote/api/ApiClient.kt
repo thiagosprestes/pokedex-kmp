@@ -1,22 +1,21 @@
 package com.example.pokedexkmp.core.data.remote.api
 
-import de.jensklingenberg.ktorfit.Ktorfit
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
-private val ktorClient = HttpClient {
+val httpClient = HttpClient {
     install(ContentNegotiation) {
         json(Json {
-            isLenient = true
+            prettyPrint = true
             ignoreUnknownKeys = true
         })
     }
     defaultRequest {
-        url("")
+        url {
+            url("https://pokeapi.co/api/v2/")
+        }
     }
 }
-
-val httpClient = Ktorfit.Builder().httpClient(ktorClient).build()

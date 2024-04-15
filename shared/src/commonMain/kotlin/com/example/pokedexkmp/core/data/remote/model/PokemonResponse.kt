@@ -10,7 +10,7 @@ data class PokemonResponse(
     @SerialName("next")
     val next: String,
     @SerialName("previous")
-    val previous: Any,
+    val previous: String? = null,
     @SerialName("results")
     val results: List<PokemonResponseItem>
 )
