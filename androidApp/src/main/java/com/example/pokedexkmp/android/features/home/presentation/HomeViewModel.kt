@@ -2,21 +2,42 @@ package com.example.pokedexkmp.android.features.home.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.pokedexkmp.core.data.remote.api.ApiResponse
+import com.example.pokedexkmp.core.data.remote.model.ComposableState
 import com.example.pokedexkmp.features.home.repository.PokemonRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
     private val pokemonRepository: PokemonRepository
 ) : ViewModel() {
-    val _teste = MutableStateFlow("AQUI")
-    val teste = _teste.asStateFlow()
+    private val _uiState = MutableStateFlow(HomeScreenState())
+    val uiState = _uiState.asStateFlow()
 
     suspend fun getPokemons() {
         viewModelScope.launch {
             val response = pokemonRepository.getPokemons()
-            println(response)
+
+            response.collect {
+                when (it) {
+                    is ApiResponse.Success -> {
+                        _uiState.update { currentState ->
+                            currentState.copy(
+                                state = ComposableState.DEFAULT,
+                                pokemons = it.data
+                            )
+                        }
+                    }
+
+                    is ApiResponse.Error -> {
+                        _uiState.update { currentState ->
+                            currentState.copy(state = ComposableState.ERROR)
+                        }
+                    }
+                }
+            }
         }
     }
 }
