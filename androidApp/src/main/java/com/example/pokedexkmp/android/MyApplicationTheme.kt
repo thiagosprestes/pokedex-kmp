@@ -14,6 +14,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.pokedexkmp.android.core.presentation.customTypography
 
 @Composable
 fun MyApplicationTheme(
@@ -48,7 +49,7 @@ fun MyApplicationTheme(
 
     MaterialTheme(
         colorScheme = colors,
-        typography = typography,
+        typography = customTypography,
         shapes = shapes,
         content = content
     )

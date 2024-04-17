@@ -2,9 +2,9 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
-    id("com.google.devtools.ksp").version("1.9.20-1.0.14")
-    id("de.jensklingenberg.ktorfit") version "1.14.0"
-    kotlin("plugin.serialization") version "1.9.20"
+    alias(libs.plugins.googleKsp)
+//    kotlin("plugin.serialization") version "1.9.20"
+    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -41,7 +41,7 @@ kotlin {
             implementation(project.dependencies.platform(libs.koin.bom))
             implementation(libs.koin.core)
 
-            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+            implementation(libs.kotlinx.serialization.json)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

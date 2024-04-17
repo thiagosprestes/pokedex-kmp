@@ -46,6 +46,8 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     debugImplementation(libs.compose.ui.tooling)
 
+    implementation(libs.androidx.navigation.compose)
+
     implementation(platform(libs.koin.bom))
     implementation(libs.koin.core)
     implementation(libs.koin.android)
@@ -54,7 +56,8 @@ dependencies {
 
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
-    implementation(libs.androidx.navigation.compose)
-
     implementation(libs.ktor.client.android)
+
+    implementation(libs.coil.compose)
+
 }
