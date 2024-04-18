@@ -8,7 +8,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.pokedexkmp.android.core.presentation.components.Error
 import com.example.pokedexkmp.android.core.presentation.components.Loading
 import com.example.pokedexkmp.android.features.home.presentation.components.Default
-import com.example.pokedexkmp.core.data.remote.model.ComposableState
+import com.example.pokedexkmp.core.domain.model.ComponentState
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -22,9 +22,9 @@ fun HomeScreen(
     }
 
     when (uiState.state) {
-        ComposableState.DEFAULT -> Default(uiState.pokemons)
-        ComposableState.LOADING -> Loading()
-        ComposableState.ERROR -> Error(onRetry = {})
+        ComponentState.DEFAULT -> Default(uiState.pokemons)
+        ComponentState.LOADING -> Loading()
+        ComponentState.ERROR -> Error(onRetry = {})
     }
 }
 

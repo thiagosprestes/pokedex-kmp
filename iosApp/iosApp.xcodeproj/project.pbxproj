@@ -11,6 +11,13 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		AF10AD012BD14B470022A416 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10AD002BD14B470022A416 /* HomeView.swift */; };
+		AF10AD052BD14D790022A416 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10AD042BD14D790022A416 /* Color.swift */; };
+		AF10AD0A2BD167080022A416 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10AD092BD167080022A416 /* DefaultView.swift */; };
+		AF10AD0C2BD1674C0022A416 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10AD0B2BD1674C0022A416 /* LoadingView.swift */; };
+		AF10AD0E2BD169140022A416 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10AD0D2BD169140022A416 /* ErrorView.swift */; };
+		AF10AD112BD182A80022A416 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10AD102BD182A80022A416 /* HomeViewModel.swift */; };
+		AF10AD132BD1D5450022A416 /* PokemonFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF10AD122BD188B10022A416 /* PokemonFont.ttf */; };
 		E88BF0F401013D263D69A31A /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802498BEA0B967275CE959A9 /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +30,13 @@
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		802498BEA0B967275CE959A9 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF10AD002BD14B470022A416 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AF10AD042BD14D790022A416 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		AF10AD092BD167080022A416 /* DefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultView.swift; sourceTree = "<group>"; };
+		AF10AD0B2BD1674C0022A416 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		AF10AD0D2BD169140022A416 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		AF10AD102BD182A80022A416 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		AF10AD122BD188B10022A416 /* PokemonFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PokemonFont.ttf; sourceTree = "<group>"; };
 		DE633F0312ED5EC02B989743 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,7 +66,6 @@
 				DE633F0312ED5EC02B989743 /* Pods-iosApp.debug.xcconfig */,
 				5928605B7933E75CBE6AE2CB /* Pods-iosApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -77,6 +90,8 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				AF10AD032BD14D6E0022A416 /* Resources */,
+				AF10ACFE2BD14B340022A416 /* Features */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -84,6 +99,51 @@
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 			);
 			path = iosApp;
+			sourceTree = "<group>";
+		};
+		AF10ACFE2BD14B340022A416 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				AF10ACFF2BD14B3E0022A416 /* Home */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		AF10ACFF2BD14B3E0022A416 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AF10AD0F2BD1829B0022A416 /* ViewModels */,
+				AF10AD022BD14BC80022A416 /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AF10AD022BD14BC80022A416 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AF10AD002BD14B470022A416 /* HomeView.swift */,
+				AF10AD092BD167080022A416 /* DefaultView.swift */,
+				AF10AD0B2BD1674C0022A416 /* LoadingView.swift */,
+				AF10AD0D2BD169140022A416 /* ErrorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AF10AD032BD14D6E0022A416 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AF10AD122BD188B10022A416 /* PokemonFont.ttf */,
+				AF10AD042BD14D790022A416 /* Color.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AF10AD0F2BD1829B0022A416 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AF10AD102BD182A80022A416 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		EF743F0DAB60333B2105ED29 /* Frameworks */ = {
@@ -153,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF10AD132BD1D5450022A416 /* PokemonFont.ttf in Resources */,
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
 			);
@@ -190,8 +251,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF10AD012BD14B470022A416 /* HomeView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				AF10AD052BD14D790022A416 /* Color.swift in Sources */,
+				AF10AD112BD182A80022A416 /* HomeViewModel.swift in Sources */,
+				AF10AD0E2BD169140022A416 /* ErrorView.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				AF10AD0A2BD167080022A416 /* DefaultView.swift in Sources */,
+				AF10AD0C2BD1674C0022A416 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

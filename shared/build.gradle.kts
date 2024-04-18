@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.googleKsp)
-//    kotlin("plugin.serialization") version "1.9.20"
     alias(libs.plugins.kotlinSerialization)
 }
 
@@ -45,6 +44,10 @@ kotlin {
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+        }
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
+
         }
     }
 }

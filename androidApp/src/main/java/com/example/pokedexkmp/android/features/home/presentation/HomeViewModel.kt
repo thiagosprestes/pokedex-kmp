@@ -2,8 +2,7 @@ package com.example.pokedexkmp.android.features.home.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.pokedexkmp.core.data.remote.api.ApiResponse
-import com.example.pokedexkmp.core.data.remote.model.ComposableState
+import com.example.pokedexkmp.core.domain.model.ComponentState
 import com.example.pokedexkmp.features.home.repository.PokemonRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -18,24 +17,20 @@ class HomeViewModel(
 
     suspend fun getPokemons() {
         viewModelScope.launch {
-            val response = pokemonRepository.getPokemons()
+            try {
+                val response = pokemonRepository.getPokemons()
 
-            response.collect {
-                when (it) {
-                    is ApiResponse.Success -> {
-                        _uiState.update { currentState ->
-                            currentState.copy(
-                                state = ComposableState.DEFAULT,
-                                pokemons = it.data
-                            )
-                        }
-                    }
-
-                    is ApiResponse.Error -> {
-                        _uiState.update { currentState ->
-                            currentState.copy(state = ComposableState.ERROR)
-                        }
-                    }
+                _uiState.update { currentState ->
+                    currentState.copy(
+                        state = ComponentState.DEFAULT,
+                        pokemons = response
+                    )
+                }
+            } catch (error: Exception) {
+                _uiState.update { currentState ->
+                    currentState.copy(
+                        state = ComponentState.ERROR,
+                    )
                 }
             }
         }
